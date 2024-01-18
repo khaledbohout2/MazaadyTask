@@ -8,14 +8,49 @@
 
 /* Begin PBXBuildFile section */
 		1B3FC3052B5885C800414569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3042B5885C800414569 /* AppDelegate.swift */; };
-		1B3FC3072B5885C800414569 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3062B5885C800414569 /* SceneDelegate.swift */; };
-		1B3FC3092B5885C800414569 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3082B5885C800414569 /* ViewController.swift */; };
-		1B3FC30C2B5885C800414569 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC30A2B5885C800414569 /* Main.storyboard */; };
 		1B3FC30E2B5885C900414569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC30D2B5885C900414569 /* Assets.xcassets */; };
 		1B3FC3112B5885C900414569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC30F2B5885C900414569 /* LaunchScreen.storyboard */; };
 		1B3FC31C2B5885C900414569 /* MazaadyTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC31B2B5885C900414569 /* MazaadyTaskTests.swift */; };
 		1B3FC3262B5885C900414569 /* MazaadyTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3252B5885C900414569 /* MazaadyTaskUITests.swift */; };
 		1B3FC3282B5885C900414569 /* MazaadyTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3272B5885C900414569 /* MazaadyTaskUITestsLaunchTests.swift */; };
+		1B3FC33D2B58872100414569 /* AppDelegate+appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC33C2B58872100414569 /* AppDelegate+appearance.swift */; };
+		1B3FC33F2B5888DE00414569 /* BaseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC33E2B5888DE00414569 /* BaseCodable.swift */; };
+		1B3FC34A2B58891E00414569 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3442B58891E00414569 /* BaseVC.swift */; };
+		1B3FC34B2B58891E00414569 /* BasePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3452B58891E00414569 /* BasePresenterProtocol.swift */; };
+		1B3FC34C2B58891E00414569 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3462B58891E00414569 /* BaseView.swift */; };
+		1B3FC34D2B58891E00414569 /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3472B58891E00414569 /* BaseViewProtocol.swift */; };
+		1B3FC34F2B5889E800414569 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC34E2B5889E800414569 /* Constants.swift */; };
+		1B3FC3532B588AB700414569 /* UITextField+setPaddingPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3522B588AB700414569 /* UITextField+setPaddingPoints.swift */; };
+		1B3FC3682B58932100414569 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3552B58932100414569 /* Poppins-ExtraLight.ttf */; };
+		1B3FC3692B58932100414569 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3562B58932100414569 /* Poppins-ThinItalic.ttf */; };
+		1B3FC36A2B58932100414569 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3572B58932100414569 /* Poppins-ExtraLightItalic.ttf */; };
+		1B3FC36B2B58932100414569 /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3582B58932100414569 /* Poppins-BoldItalic.ttf */; };
+		1B3FC36C2B58932100414569 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3592B58932100414569 /* Poppins-Light.ttf */; };
+		1B3FC36D2B58932100414569 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC35A2B58932100414569 /* Poppins-Medium.ttf */; };
+		1B3FC36E2B58932100414569 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC35B2B58932100414569 /* Poppins-SemiBoldItalic.ttf */; };
+		1B3FC36F2B58932100414569 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC35C2B58932100414569 /* Poppins-ExtraBoldItalic.ttf */; };
+		1B3FC3702B58932100414569 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC35D2B58932100414569 /* Poppins-ExtraBold.ttf */; };
+		1B3FC3712B58932100414569 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC35E2B58932100414569 /* Poppins-BlackItalic.ttf */; };
+		1B3FC3722B58932100414569 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC35F2B58932100414569 /* OFL.txt */; };
+		1B3FC3732B58932100414569 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3602B58932100414569 /* Poppins-Regular.ttf */; };
+		1B3FC3742B58932100414569 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3612B58932100414569 /* Poppins-LightItalic.ttf */; };
+		1B3FC3752B58932100414569 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3622B58932100414569 /* Poppins-Bold.ttf */; };
+		1B3FC3762B58932100414569 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3632B58932100414569 /* Poppins-Black.ttf */; };
+		1B3FC3772B58932100414569 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3642B58932100414569 /* Poppins-Thin.ttf */; };
+		1B3FC3782B58932100414569 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3652B58932100414569 /* Poppins-SemiBold.ttf */; };
+		1B3FC3792B58932100414569 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3662B58932100414569 /* Poppins-Italic.ttf */; };
+		1B3FC37A2B58932100414569 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC3672B58932100414569 /* Poppins-MediumItalic.ttf */; };
+		1B3FC37D2B58936400414569 /* UIFont+Poppins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC37C2B58936400414569 /* UIFont+Poppins.swift */; };
+		1B3FC3802B58942500414569 /* UIView+anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC37F2B58942500414569 /* UIView+anchor.swift */; };
+		1B3FC3822B58944A00414569 /* UIView+makeRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3812B58944A00414569 /* UIView+makeRounded.swift */; };
+		1B3FC3842B58946800414569 /* UIView+fillSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3832B58946800414569 /* UIView+fillSuperView.swift */; };
+		1B3FC3872B5894D400414569 /* UIViewController+loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3862B5894D400414569 /* UIViewController+loading.swift */; };
+		1B3FC3892B5894FE00414569 /* UIViewController+showAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3882B5894FE00414569 /* UIViewController+showAlert.swift */; };
+		1B3FC38B2B58951900414569 /* UIViewController+toNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC38A2B58951900414569 /* UIViewController+toNavigation.swift */; };
+		1B3FC38D2B58953300414569 /* UIViewController+addNavBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC38C2B58953300414569 /* UIViewController+addNavBtn.swift */; };
+		1B3FC3902B58955F00414569 /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC38F2B58955F00414569 /* UIColor+CustomColors.swift */; };
+		1B3FC3962B58974B00414569 /* UIButton+addTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3952B58974B00414569 /* UIButton+addTarget.swift */; };
+		A1E1D5475F0CCBBFD68A294E /* Pods_MazaadyTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADD90EC0C19351E04FFAAE6 /* Pods_MazaadyTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +73,6 @@
 /* Begin PBXFileReference section */
 		1B3FC3012B5885C800414569 /* MazaadyTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MazaadyTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3FC3042B5885C800414569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B3FC3062B5885C800414569 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1B3FC3082B5885C800414569 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1B3FC30B2B5885C800414569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B3FC30D2B5885C900414569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B3FC3102B5885C900414569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B3FC3122B5885C900414569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +81,46 @@
 		1B3FC3212B5885C900414569 /* MazaadyTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MazaadyTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3FC3252B5885C900414569 /* MazaadyTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazaadyTaskUITests.swift; sourceTree = "<group>"; };
 		1B3FC3272B5885C900414569 /* MazaadyTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazaadyTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1B3FC33C2B58872100414569 /* AppDelegate+appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+appearance.swift"; sourceTree = "<group>"; };
+		1B3FC33E2B5888DE00414569 /* BaseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCodable.swift; sourceTree = "<group>"; };
+		1B3FC3442B58891E00414569 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		1B3FC3452B58891E00414569 /* BasePresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenterProtocol.swift; sourceTree = "<group>"; };
+		1B3FC3462B58891E00414569 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		1B3FC3472B58891E00414569 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		1B3FC34E2B5889E800414569 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1B3FC3522B588AB700414569 /* UITextField+setPaddingPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+setPaddingPoints.swift"; sourceTree = "<group>"; };
+		1B3FC3552B58932100414569 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		1B3FC3562B58932100414569 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		1B3FC3572B58932100414569 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		1B3FC3582B58932100414569 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1B3FC3592B58932100414569 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		1B3FC35A2B58932100414569 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		1B3FC35B2B58932100414569 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		1B3FC35C2B58932100414569 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		1B3FC35D2B58932100414569 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		1B3FC35E2B58932100414569 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		1B3FC35F2B58932100414569 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		1B3FC3602B58932100414569 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		1B3FC3612B58932100414569 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		1B3FC3622B58932100414569 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		1B3FC3632B58932100414569 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
+		1B3FC3642B58932100414569 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		1B3FC3652B58932100414569 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		1B3FC3662B58932100414569 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		1B3FC3672B58932100414569 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1B3FC37C2B58936400414569 /* UIFont+Poppins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Poppins.swift"; sourceTree = "<group>"; };
+		1B3FC37F2B58942500414569 /* UIView+anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+anchor.swift"; sourceTree = "<group>"; };
+		1B3FC3812B58944A00414569 /* UIView+makeRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+makeRounded.swift"; sourceTree = "<group>"; };
+		1B3FC3832B58946800414569 /* UIView+fillSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fillSuperView.swift"; sourceTree = "<group>"; };
+		1B3FC3862B5894D400414569 /* UIViewController+loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+loading.swift"; sourceTree = "<group>"; };
+		1B3FC3882B5894FE00414569 /* UIViewController+showAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showAlert.swift"; sourceTree = "<group>"; };
+		1B3FC38A2B58951900414569 /* UIViewController+toNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+toNavigation.swift"; sourceTree = "<group>"; };
+		1B3FC38C2B58953300414569 /* UIViewController+addNavBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+addNavBtn.swift"; sourceTree = "<group>"; };
+		1B3FC38F2B58955F00414569 /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
+		1B3FC3952B58974B00414569 /* UIButton+addTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+addTarget.swift"; sourceTree = "<group>"; };
+		3ADD90EC0C19351E04FFAAE6 /* Pods_MazaadyTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MazaadyTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F3D32C3CEEE5D36DD84344 /* Pods-MazaadyTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MazaadyTask.debug.xcconfig"; path = "Target Support Files/Pods-MazaadyTask/Pods-MazaadyTask.debug.xcconfig"; sourceTree = "<group>"; };
+		C76B6CBF247B18CB7611C97C /* Pods-MazaadyTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MazaadyTask.release.xcconfig"; path = "Target Support Files/Pods-MazaadyTask/Pods-MazaadyTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1E1D5475F0CCBBFD68A294E /* Pods_MazaadyTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +156,8 @@
 				1B3FC31A2B5885C900414569 /* MazaadyTaskTests */,
 				1B3FC3242B5885C900414569 /* MazaadyTaskUITests */,
 				1B3FC3022B5885C800414569 /* Products */,
+				B82CB91C78D0222DC3CBD00E /* Pods */,
+				8FEE8F85AF14DAF081ACD9EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +174,12 @@
 		1B3FC3032B5885C800414569 /* MazaadyTask */ = {
 			isa = PBXGroup;
 			children = (
-				1B3FC3042B5885C800414569 /* AppDelegate.swift */,
-				1B3FC3062B5885C800414569 /* SceneDelegate.swift */,
-				1B3FC3082B5885C800414569 /* ViewController.swift */,
-				1B3FC30A2B5885C800414569 /* Main.storyboard */,
-				1B3FC30D2B5885C900414569 /* Assets.xcassets */,
-				1B3FC30F2B5885C900414569 /* LaunchScreen.storyboard */,
-				1B3FC3122B5885C900414569 /* Info.plist */,
+				1B3FC33A2B58868800414569 /* Configuration */,
+				1B3FC3392B58867B00414569 /* Core */,
+				1B3FC3382B58867200414569 /* Resources */,
+				1B3FC3362B58865E00414569 /* Scenes */,
+				1B3FC3352B58862A00414569 /* Network */,
+				1B3FC3342B58862100414569 /* Utils */,
 			);
 			path = MazaadyTask;
 			sourceTree = "<group>";
@@ -127,6 +201,194 @@
 			path = MazaadyTaskUITests;
 			sourceTree = "<group>";
 		};
+		1B3FC3342B58862100414569 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3502B588A9B00414569 /* Extensions */,
+				1B3FC34E2B5889E800414569 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1B3FC3352B58862A00414569 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1B3FC3362B58865E00414569 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3402B5888FC00414569 /* Base */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1B3FC3372B58866700414569 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC33E2B5888DE00414569 /* BaseCodable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B3FC3382B58867200414569 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC30D2B5885C900414569 /* Assets.xcassets */,
+				1B3FC30F2B5885C900414569 /* LaunchScreen.storyboard */,
+				1B3FC3372B58866700414569 /* Model */,
+				1B3FC33B2B5886BE00414569 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1B3FC3392B58867B00414569 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3042B5885C800414569 /* AppDelegate.swift */,
+				1B3FC33C2B58872100414569 /* AppDelegate+appearance.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1B3FC33A2B58868800414569 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3122B5885C900414569 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		1B3FC33B2B5886BE00414569 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3542B58932100414569 /* Poppins */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1B3FC3402B5888FC00414569 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3442B58891E00414569 /* BaseVC.swift */,
+				1B3FC3462B58891E00414569 /* BaseView.swift */,
+				1B3FC3472B58891E00414569 /* BaseViewProtocol.swift */,
+				1B3FC3452B58891E00414569 /* BasePresenterProtocol.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1B3FC3502B588A9B00414569 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3942B58973C00414569 /* UIButton */,
+				1B3FC38E2B58954F00414569 /* UIColor */,
+				1B3FC3852B5894B300414569 /* UIViewController */,
+				1B3FC37E2B58940A00414569 /* UIView */,
+				1B3FC37B2B58934800414569 /* UIFont */,
+				1B3FC3512B588AA900414569 /* UITextField */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1B3FC3512B588AA900414569 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3522B588AB700414569 /* UITextField+setPaddingPoints.swift */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		1B3FC3542B58932100414569 /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3552B58932100414569 /* Poppins-ExtraLight.ttf */,
+				1B3FC3562B58932100414569 /* Poppins-ThinItalic.ttf */,
+				1B3FC3572B58932100414569 /* Poppins-ExtraLightItalic.ttf */,
+				1B3FC3582B58932100414569 /* Poppins-BoldItalic.ttf */,
+				1B3FC3592B58932100414569 /* Poppins-Light.ttf */,
+				1B3FC35A2B58932100414569 /* Poppins-Medium.ttf */,
+				1B3FC35B2B58932100414569 /* Poppins-SemiBoldItalic.ttf */,
+				1B3FC35C2B58932100414569 /* Poppins-ExtraBoldItalic.ttf */,
+				1B3FC35D2B58932100414569 /* Poppins-ExtraBold.ttf */,
+				1B3FC35E2B58932100414569 /* Poppins-BlackItalic.ttf */,
+				1B3FC35F2B58932100414569 /* OFL.txt */,
+				1B3FC3602B58932100414569 /* Poppins-Regular.ttf */,
+				1B3FC3612B58932100414569 /* Poppins-LightItalic.ttf */,
+				1B3FC3622B58932100414569 /* Poppins-Bold.ttf */,
+				1B3FC3632B58932100414569 /* Poppins-Black.ttf */,
+				1B3FC3642B58932100414569 /* Poppins-Thin.ttf */,
+				1B3FC3652B58932100414569 /* Poppins-SemiBold.ttf */,
+				1B3FC3662B58932100414569 /* Poppins-Italic.ttf */,
+				1B3FC3672B58932100414569 /* Poppins-MediumItalic.ttf */,
+			);
+			path = Poppins;
+			sourceTree = "<group>";
+		};
+		1B3FC37B2B58934800414569 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC37C2B58936400414569 /* UIFont+Poppins.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		1B3FC37E2B58940A00414569 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC37F2B58942500414569 /* UIView+anchor.swift */,
+				1B3FC3812B58944A00414569 /* UIView+makeRounded.swift */,
+				1B3FC3832B58946800414569 /* UIView+fillSuperView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		1B3FC3852B5894B300414569 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3862B5894D400414569 /* UIViewController+loading.swift */,
+				1B3FC3882B5894FE00414569 /* UIViewController+showAlert.swift */,
+				1B3FC38A2B58951900414569 /* UIViewController+toNavigation.swift */,
+				1B3FC38C2B58953300414569 /* UIViewController+addNavBtn.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		1B3FC38E2B58954F00414569 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC38F2B58955F00414569 /* UIColor+CustomColors.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		1B3FC3942B58973C00414569 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				1B3FC3952B58974B00414569 /* UIButton+addTarget.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		8FEE8F85AF14DAF081ACD9EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3ADD90EC0C19351E04FFAAE6 /* Pods_MazaadyTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B82CB91C78D0222DC3CBD00E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65F3D32C3CEEE5D36DD84344 /* Pods-MazaadyTask.debug.xcconfig */,
+				C76B6CBF247B18CB7611C97C /* Pods-MazaadyTask.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +396,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B3FC32B2B5885C900414569 /* Build configuration list for PBXNativeTarget "MazaadyTask" */;
 			buildPhases = (
+				D29F1C78B02BEF2C4C65FCCE /* [CP] Check Pods Manifest.lock */,
 				1B3FC2FD2B5885C800414569 /* Sources */,
 				1B3FC2FE2B5885C800414569 /* Frameworks */,
 				1B3FC2FF2B5885C800414569 /* Resources */,
+				2C9F915E67BEB92038421663 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,9 +495,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3FC36C2B58932100414569 /* Poppins-Light.ttf in Resources */,
+				1B3FC3762B58932100414569 /* Poppins-Black.ttf in Resources */,
+				1B3FC3742B58932100414569 /* Poppins-LightItalic.ttf in Resources */,
+				1B3FC3772B58932100414569 /* Poppins-Thin.ttf in Resources */,
+				1B3FC3682B58932100414569 /* Poppins-ExtraLight.ttf in Resources */,
+				1B3FC3782B58932100414569 /* Poppins-SemiBold.ttf in Resources */,
+				1B3FC3752B58932100414569 /* Poppins-Bold.ttf in Resources */,
+				1B3FC3692B58932100414569 /* Poppins-ThinItalic.ttf in Resources */,
+				1B3FC36A2B58932100414569 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				1B3FC3712B58932100414569 /* Poppins-BlackItalic.ttf in Resources */,
+				1B3FC36F2B58932100414569 /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				1B3FC36B2B58932100414569 /* Poppins-BoldItalic.ttf in Resources */,
+				1B3FC36E2B58932100414569 /* Poppins-SemiBoldItalic.ttf in Resources */,
+				1B3FC3722B58932100414569 /* OFL.txt in Resources */,
+				1B3FC3732B58932100414569 /* Poppins-Regular.ttf in Resources */,
+				1B3FC3702B58932100414569 /* Poppins-ExtraBold.ttf in Resources */,
+				1B3FC36D2B58932100414569 /* Poppins-Medium.ttf in Resources */,
 				1B3FC3112B5885C900414569 /* LaunchScreen.storyboard in Resources */,
+				1B3FC3792B58932100414569 /* Poppins-Italic.ttf in Resources */,
+				1B3FC37A2B58932100414569 /* Poppins-MediumItalic.ttf in Resources */,
 				1B3FC30E2B5885C900414569 /* Assets.xcassets in Resources */,
-				1B3FC30C2B5885C800414569 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,14 +535,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C9F915E67BEB92038421663 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MazaadyTask/Pods-MazaadyTask-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MazaadyTask/Pods-MazaadyTask-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MazaadyTask/Pods-MazaadyTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D29F1C78B02BEF2C4C65FCCE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MazaadyTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B3FC2FD2B5885C800414569 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B3FC3092B5885C800414569 /* ViewController.swift in Sources */,
+				1B3FC3802B58942500414569 /* UIView+anchor.swift in Sources */,
+				1B3FC38B2B58951900414569 /* UIViewController+toNavigation.swift in Sources */,
+				1B3FC33D2B58872100414569 /* AppDelegate+appearance.swift in Sources */,
+				1B3FC3822B58944A00414569 /* UIView+makeRounded.swift in Sources */,
+				1B3FC3902B58955F00414569 /* UIColor+CustomColors.swift in Sources */,
+				1B3FC38D2B58953300414569 /* UIViewController+addNavBtn.swift in Sources */,
+				1B3FC3872B5894D400414569 /* UIViewController+loading.swift in Sources */,
+				1B3FC34A2B58891E00414569 /* BaseVC.swift in Sources */,
+				1B3FC3892B5894FE00414569 /* UIViewController+showAlert.swift in Sources */,
 				1B3FC3052B5885C800414569 /* AppDelegate.swift in Sources */,
-				1B3FC3072B5885C800414569 /* SceneDelegate.swift in Sources */,
+				1B3FC3532B588AB700414569 /* UITextField+setPaddingPoints.swift in Sources */,
+				1B3FC3842B58946800414569 /* UIView+fillSuperView.swift in Sources */,
+				1B3FC37D2B58936400414569 /* UIFont+Poppins.swift in Sources */,
+				1B3FC34D2B58891E00414569 /* BaseViewProtocol.swift in Sources */,
+				1B3FC34B2B58891E00414569 /* BasePresenterProtocol.swift in Sources */,
+				1B3FC33F2B5888DE00414569 /* BaseCodable.swift in Sources */,
+				1B3FC3962B58974B00414569 /* UIButton+addTarget.swift in Sources */,
+				1B3FC34C2B58891E00414569 /* BaseView.swift in Sources */,
+				1B3FC34F2B5889E800414569 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +637,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1B3FC30A2B5885C800414569 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1B3FC30B2B5885C800414569 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1B3FC30F2B5885C900414569 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -353,7 +685,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -416,7 +748,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -437,6 +769,7 @@
 		};
 		1B3FC32C2B5885C900414569 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65F3D32C3CEEE5D36DD84344 /* Pods-MazaadyTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -444,10 +777,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RR9432ADJP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MazaadyTask/Info.plist;
+				INFOPLIST_FILE = MazaadyTask/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,6 +789,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = KhaleBohout.MazaadyTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -465,6 +800,7 @@
 		};
 		1B3FC32D2B5885C900414569 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C76B6CBF247B18CB7611C97C /* Pods-MazaadyTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -472,10 +808,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RR9432ADJP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MazaadyTask/Info.plist;
+				INFOPLIST_FILE = MazaadyTask/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,6 +820,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = KhaleBohout.MazaadyTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
