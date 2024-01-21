@@ -1,15 +1,18 @@
 PODS:
+  - DropDown (2.3.13)
   - IQKeyboardManagerSwift (6.5.12)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
 
 DEPENDENCIES:
+  - DropDown
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView (from `https://github.com/ninjaprox/NVActivityIndicatorView.git`, tag `4.8.0`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - DropDown
     - IQKeyboardManagerSwift
 
 EXTERNAL SOURCES:
@@ -23,9 +26,10 @@ CHECKOUT OPTIONS:
     :tag: 4.8.0
 
 SPEC CHECKSUMS:
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   IQKeyboardManagerSwift: 371b08cb39664fb56030f5345c815a4ffc74bbc0
   NVActivityIndicatorView: 24b713d5140767dc43097cd9d5ff719ff0660bdc
 
-PODFILE CHECKSUM: ebe68c8517c301d78bb4194d6a0ab62e38ac11dd
+PODFILE CHECKSUM: 26ad12ee8d66f096e038bc15e745802608d00d84
 
 COCOAPODS: 1.13.0

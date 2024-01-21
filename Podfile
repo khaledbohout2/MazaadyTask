@@ -12,6 +12,8 @@ target 'MazaadyTask' do
   # Pods for MazaadyTask
   pod 'IQKeyboardManagerSwift'
   pod 'NVActivityIndicatorView', :git => 'https://github.com/ninjaprox/NVActivityIndicatorView.git', :tag => '4.8.0'
+  pod 'DropDown'
+
 end
 
 post_install do |installer|

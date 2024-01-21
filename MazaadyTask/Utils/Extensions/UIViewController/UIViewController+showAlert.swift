@@ -55,8 +55,9 @@ extension UIViewController {
         if !selfDismissing {
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         }
-
-        present(alert, animated: true)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
 
         if selfDismissing {
             Timer.scheduledTimer(withTimeInterval: time, repeats: false) { timer in
