@@ -10,9 +10,7 @@ import DropDown
 
 protocol FormVCProtocol: BaseViewProtocol {
     var presenter: FormVCPresenterProtocol! { get set }
-    func updateMainCategories(categories: [Category])
-    func updateProperties(properties: [Option])
-    func updateOptionsChild(options: [Option], index: Int)
+    func updateUI(with categories: [Category])
 }
 
 class FormVC: BaseVC<FormView>, FormVCProtocol {
@@ -25,21 +23,9 @@ class FormVC: BaseVC<FormView>, FormVCProtocol {
         mainView.delegate = self
     }
 
-    func updateMainCategories(categories: [Category]) {
+    func updateUI(with categories: [Category]) {
         DispatchQueue.main.async { [weak self] in
-            self?.mainView.setupDropdowns(categories: categories)
-        }
-    }
-
-    func updateProperties(properties: [Option]) {
-        DispatchQueue.main.async { [weak self] in
-            self?.mainView.setupPropertyButtons(properties: properties)
-        }
-    }
-
-    func updateOptionsChild(options: [Option], index: Int) {
-        DispatchQueue.main.async { [weak self] in
-            self?.mainView.updateChildPropertyDropdown(at: index, with: options)
+            self?.mainView.setupMainCategoriesDropdown(categories: categories)
         }
     }
 
@@ -47,15 +33,20 @@ class FormVC: BaseVC<FormView>, FormVCProtocol {
 
 extension FormVC: FormViewActionsProtocol {
 
-        func didSelectSubCategory(id: Int) {
-            presenter.didSelectSubCategory(id: id)
-        }
-        
-        func didSelectProperty(index: Int, id: Int) {
-            presenter.didSelectProperty(id: id, index: index)
-        }
-        
-        func didSelectOptionChild(id: Int) {
-       //     presenter.didSelectOptionChild(id: id)
-        }
+    func didSelectMainCategory(mainCatId: Int) {
+        presenter.didSelectMainCategory(mainCatId: mainCatId)
+    }
+
+    func didSelectSubCategory(mainCatId: Int, subCatId: Int) {
+        presenter.didSelectSubCategory(mainCatId: mainCatId, subCatId: subCatId)
+    }
+
+    func didSelectProperty(mainCatId: Int, subCatId: Int, propertyId: Int?, other: Bool?) {
+        presenter.didSelectProperty(mainCatId: mainCatId, subCatId: subCatId, propertyId: propertyId, other: other)
+    }
+
+    func didSelectOptionChild(mainCatId: Int, subCatId: Int, propertyId: Int, childPropertyId: Int) {
+        presenter.didSelectChildProperty(mainCatId: mainCatId, subCatId: subCatId, propertyId: propertyId, childPropertyId: childPropertyId)
+    }
+
 }

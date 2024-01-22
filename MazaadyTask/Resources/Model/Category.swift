@@ -15,26 +15,11 @@ struct categoriesData: Codable {
 struct Category: Codable {
     let id: Int
     let name: String
-    let children: [SubCategory]?
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, children
-    }
-}
-
-// MARK: - Datum
-struct SubCategory: Codable {
-    let id: Int
-    let name: String
-
-    enum CodingKeys: String, CodingKey {
-        case id, name
-    }
-}
-
-// MARK: - Option
-struct Option: Codable {
-    let id: Int
-    let name: String
+    var children: [Category]?
+    var options: [Category]?
+    var selected: Bool?
+    var parentID: Int?
+    var other: Bool?
+    var otherValue: String?
 }
 

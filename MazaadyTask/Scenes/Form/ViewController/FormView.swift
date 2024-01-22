@@ -2,14 +2,20 @@ import UIKit
 import DropDown
 
 protocol FormViewActionsProtocol: AnyObject {
-    func didSelectSubCategory(id: Int)
-    func didSelectProperty(index: Int, id: Int)
-    func didSelectOptionChild(id: Int)
+    func didSelectMainCategory(mainCatId: Int)
+    func didSelectSubCategory(mainCatId: Int, subCatId: Int)
+    func didSelectProperty(mainCatId: Int, subCatId: Int, propertyId: Int?, other: Bool?)
+    func didSelectOptionChild(mainCatId: Int, subCatId: Int, propertyId: Int, childPropertyId: Int)
+}
+
+@objc protocol DropDownBtnsAction: AnyObject {
+    func didTapOption(propertyId: Int)
 }
 
 class FormView: BaseView {
 
     weak var delegate: FormViewActionsProtocol?
+    weak var dropDownBtnsAction: DropDownBtnsAction?
 
     private var labels: [PaddingLabel] = []
 
@@ -44,7 +50,7 @@ class FormView: BaseView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 25
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
         return stackView
     }()
 
@@ -74,6 +80,8 @@ class FormView: BaseView {
     private let mainCategoryDropdown = DropDown()
     private let subCategoryDropdown = DropDown()
     private var propertyDropdowns: [DropDown] = []
+    private var optionDropdowns: [Int: [DropDown]] = [:]
+    var optionyButtons: [Int: [UIButton]] = [:]
 
     private lazy var submitButton: UIButton = {
         let button = UIButton()
@@ -112,7 +120,7 @@ class FormView: BaseView {
 
         containerView.addSubview(mainStackView)
         mainStackView.anchor(
-            .top(containerView.topAnchor, constant: 70),
+            .top(containerView.topAnchor),
             .leading(containerView.leadingAnchor, constant: 20),
             .trailing(containerView.trailingAnchor, constant: 20)
         )
@@ -131,18 +139,49 @@ class FormView: BaseView {
             .top(mainStackView.bottomAnchor, constant: 30),
             .leading(containerView.leadingAnchor, constant: 20),
             .trailing(containerView.trailingAnchor, constant: 20),
-            .bottom(containerView.bottomAnchor, constant: 30),
+            .bottom(containerView.bottomAnchor, constant: 80),
             .height(50)
         )
     }
 
-    func setupPropertyButtons(properties: [Option]) {
-        propertyButtons.removeAll()
-        propertyDropdowns.removeAll()
+    func setupMainCategoriesDropdown(categories: [Category]) {
+        mainCategoryDropdown.anchorView = mainCategoryButton
+        mainCategoryDropdown.dataSource = categories.map { $0.name }
+        addLabel(for: mainCategoryButton, with: "Category", in: categoryStackView)
+        mainCategoryDropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            guard let self = self else { return }
+            self.mainCategoryButton.setTitle(item, for: .normal)
+            self.delegate?.didSelectMainCategory(mainCatId: categories[index].id)
+        }
+        guard let selectedCategory = categories.first(where: { $0.selected ?? false }) else {return}
+        mainCategoryButton.setTitle(selectedCategory.name, for: .normal)
+        setUpSubCategoriesDropdown(categories: categories)
+    }
+
+    func setUpSubCategoriesDropdown(categories: [Category]) {
+        subCategoryDropdown.anchorView = subCategoryButton
+        addLabel(for: subCategoryButton, with: "Sub Category", in: categoryStackView)
+        guard let selectedCategory = categories.first(where: {$0.selected ?? false}), let subCategories = selectedCategory.children else {return}
+        subCategoryDropdown.dataSource = subCategories.map { $0.name }
+        subCategoryDropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            guard let self = self else { return }
+            self.subCategoryButton.setTitle(item, for: .normal)
+            self.delegate?.didSelectSubCategory(mainCatId: selectedCategory.id, subCatId: subCategories[index].id)
+        }
+        guard let selectedSubCategory = subCategories.first(where: { $0.selected == true }) else {return}
+        subCategoryButton.setTitle(selectedSubCategory.name, for: .normal)
+        setupPropertyButtons(categories: categories)
+    }
+
+    func setupPropertyButtons(categories: [Category]) {
+        propertyButtons = []
         allPropertiesStackView.removeAllArrangedSubviews()
+        guard let selectedCategory = categories.first(where: {$0.selected ?? false}),
+              let subCategories = selectedCategory.children,
+            let selectedSubCategory = subCategories.first(where: { $0.selected == true }),
+        let properties = selectedSubCategory.children else {return}
         for property in properties {
             let singlePropertyStackView = createSinglePropertyStackView()
-
             let button = UIButton()
             button.setTitle(property.name, for: .normal)
             button.addTarget(self, action: #selector(propertyButtonTapped(_:)), for: .touchUpInside)
@@ -152,47 +191,89 @@ class FormView: BaseView {
             button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
             propertyButtons.append(button)
             singlePropertyStackView.addArrangedSubview(button)
+            addLabel(for: button, with: property.name, in: singlePropertyStackView)
+            if property.other ?? false, property.selected ?? false {
+                let textField = UITextField()
+                textField.placeholder = "Other"
+                textField.borderStyle = .roundedRect
+                singlePropertyStackView.addArrangedSubview(textField)
+            }
+            guard let options = property.options, property.selected ?? false else {
+                allPropertiesStackView.addArrangedSubview(singlePropertyStackView)
+                return
+            }
+            optionyButtons[property.id]?.removeAll()
+            for index in 0...options.count - 1 {
+                let option = options[index]
+                let button = UIButton()
+                button.setTitle(option.name, for: .normal)
+                button.addTarget(self, action: #selector(propertyButtonTapped(_:)), for: .touchUpInside)
+                button.backgroundColor = .white
+                button.makeRoundedCorner(cornerRadius: 8, borderColor: .lightGray, borderWidth: 1)
+                button.setTitleColor(.black, for: .normal)
+                button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
+                button.tag = property.id
+                if option.selected ?? false {
+                    button.setTitle(option.name, for: .normal)
+                }
+                if var optionyButtonsArr = optionyButtons[property.id] {
+                    optionyButtonsArr.append(button)
+                } else {
+                    optionyButtons[property.id] = [UIButton]()
+                    optionyButtons[property.id]?.append(button)
+                }
+                singlePropertyStackView.addArrangedSubview(button)
+                addLabel(for: button, with: option.name, in: singlePropertyStackView)
+            }
+            setUpOptionsDropdowns(mainCatId: selectedCategory.id, subCatId: selectedSubCategory.id, property: property)
             allPropertiesStackView.addArrangedSubview(singlePropertyStackView)
         }
-        setupPropertyDropdowns(properties: properties)
+        setupPropertyDropdowns(categories: categories)
     }
 
-    func setupDropdowns(categories: [Category]) {
-        mainCategoryDropdown.anchorView = mainCategoryButton
-        mainCategoryDropdown.dataSource = categories.map { $0.name }
-        addLabel(for: mainCategoryDropdown, with: "Category", in: categoryStackView)
-        mainCategoryDropdown.selectionAction = { [weak self] (index: Int, item: String) in
-            guard let self = self else { return }
-            self.mainCategoryButton.setTitle(item, for: .normal)
-            self.didSelectMainCategory(categories[index])
-        }
-
-        subCategoryDropdown.anchorView = subCategoryButton
-        addLabel(for: subCategoryDropdown, with: "Sub Category", in: categoryStackView)
-        subCategoryDropdown.selectionAction = { [weak self] (index: Int, item: String) in
-            guard let self = self else { return }
-            self.subCategoryButton.setTitle(item, for: .normal)
-            self.didSelectSubCategory(categories[index].children?[0] ?? SubCategory(id: 0, name: ""))
-        }
-    }
-
-    func setupPropertyDropdowns(properties: [Option]) {
-        for (index, property) in properties.enumerated() {
+    func setupPropertyDropdowns(categories: [Category]) {
+        propertyDropdowns = []
+        guard let selectedCategory = categories.first(where: { $0.selected == true }),
+        let subCategories = selectedCategory.children,
+            let selectedSubCategory = subCategories.first(where: { $0.selected == true }),
+        let properties = selectedSubCategory.options else {return}
+        for propertyIndex in 0...properties.count - 1 {
             let dropdown = DropDown()
-            dropdown.anchorView = propertyButtons[index]
-            var propertiesString = properties.map { $0.name }
+            dropdown.anchorView = propertyButtons[propertyIndex]
+            var propertiesString = properties[propertyIndex].options?.map { $0.name } ?? []
             propertiesString.append("Other")
             dropdown.dataSource = propertiesString
-            addLabel(for: dropdown, with: property.name, in: allPropertiesStackView)
-
-            dropdown.selectionAction = { [unowned self] (selectedIndex, selectedItem) in
-                if selectedIndex == properties.count {
-                    self.didSelectProperty(index, nil)
+            dropdown.selectionAction = { [weak self] (index: Int, item: String) in
+                guard let self = self else { return }
+                self.propertyButtons[propertyIndex].setTitle(item, for: .normal)
+                if index == properties.count {
+                    self.delegate?.didSelectProperty(mainCatId: selectedCategory.id, subCatId: selectedSubCategory.id, propertyId: nil, other: true)
                 } else {
-                    self.didSelectProperty(index, properties[selectedIndex])
+                    self.delegate?.didSelectProperty(mainCatId: selectedCategory.id, subCatId: selectedSubCategory.id, propertyId: properties[propertyIndex].id, other: false)
                 }
             }
             propertyDropdowns.append(dropdown)
+        }
+    }
+
+    func setUpOptionsDropdowns(mainCatId: Int, subCatId: Int, property: Category) {
+        guard let options = property.options else {return}
+        optionDropdowns[property.id]?.removeAll()
+        for optionIndex in 0...options.count - 1 {
+            let dropdown = DropDown()
+            dropdown.anchorView = optionyButtons[property.id]?[optionIndex]
+            dropdown.dataSource = options[property.id].options?.map { $0.name } ?? []
+            dropdown.selectionAction = { [weak self] (index: Int, item: String) in
+                guard let self = self else { return }
+                self.optionyButtons[property.id]?[optionIndex].setTitle(item, for: .normal)
+                self.delegate?.didSelectOptionChild(mainCatId: mainCatId, subCatId: subCatId, propertyId: property.id, childPropertyId: options[optionIndex].id)
+            }
+            if var optionyDropdownsArr = optionDropdowns[property.id] {
+                optionyDropdownsArr.append(dropdown)
+            } else {
+                optionDropdowns[property.id] = [DropDown]()
+                optionDropdowns[property.id]?.append(dropdown)
+            }
         }
     }
 
@@ -209,143 +290,32 @@ class FormView: BaseView {
         propertyDropdowns[index].show()
     }
 
-    private func didSelectMainCategory(_ category: Category) {
-        let subcategories = category.children ?? []
-        subCategoryDropdown.dataSource = subcategories.map { $0.name }
-        subCategoryDropdown.selectionAction = { [weak self] (index: Int, item: String) in
-            guard let self = self else { return }
-            self.subCategoryButton.setTitle(item, for: .normal)
-            self.didSelectSubCategory(subcategories[index])
-        }
-
-        for subview in allPropertiesStackView.arrangedSubviews {
-            subview.removeFromSuperview()
-        }
+    @objc private func childPropertyButtonTapped(_ sender: UIButton) {
+        let key = sender.tag
+        let array = optionyButtons[key]
+        guard let index = array?.firstIndex(of: sender) else { return }
+        optionDropdowns[key]?[index].show()
     }
 
-    private func didSelectSubCategory(_ subCategory: SubCategory) {
-        for subview in allPropertiesStackView.arrangedSubviews {
-            subview.removeFromSuperview()
-        }
-
-        self.delegate?.didSelectSubCategory(id: subCategory.id)
-    }
-
-    private func didSelectProperty(_ index: Int, _ selectedProperty: Option?) {
-        // Remove existing input field for the selected property if it exists
-        let existingInputField = allPropertiesStackView.arrangedSubviews.first { view in
-            if let textField = view as? UITextField, textField.tag == index {
-                return true
-            }
-            return false
-        }
-
-        if let existingInputField = existingInputField {
-            existingInputField.removeFromSuperview()
-        }
-
-        if selectedProperty == nil {
-            propertyButtons[index].setTitle("Other", for: .normal)
-            showInputField(for: index)
-        } else {
-            propertyButtons[index].setTitle(selectedProperty?.name, for: .normal)
-            self.delegate?.didSelectProperty(index: index, id: selectedProperty!.id)
-        }
-        rebuildPropertyStackView()
-    }
-
-    func updateChildPropertyDropdown(at index: Int, with childProperties: [Option]) {
-        guard index + 1 < propertyDropdowns.count else { return }
-
-        // Check bounds for allPropertiesStackView
-        guard index + 2 <= allPropertiesStackView.arrangedSubviews.count else { return }
-
-        propertyDropdowns[index + 1].dataSource = childProperties.map({ $0.name })
-
-        // Remove existing buttons and labels for child properties
-        let upperBound = min(index + 2, allPropertiesStackView.arrangedSubviews.count)
-        for i in 0 ..< upperBound {
-            guard (i - 2) < labels.count, (i - 2) >= 0 else { continue }  // Check bounds for labels array
-            allPropertiesStackView.arrangedSubviews[i].removeFromSuperview()
-            labels[i - 2].removeFromSuperview()
-        }
-    }
-
-    private func addLabel(for dropDown: DropDown, with title: String, in stackView: UIStackView) {
+    private func addLabel(for dropDownButton: UIButton, with title: String, in stackView: UIStackView) {
         let label = PaddingLabel()
         label.text = title
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.backgroundColor = .white
         stackView.addSubview(label)
-        labels.append(label) // Store the label in the array
-
-        if let anchorButton = dropDown.anchorView as? UIButton {
-            // Set constraints for the label relative to the anchorButton
-            label.anchor(
-                .bottom(anchorButton.topAnchor, constant: -5),
-                .leading(anchorButton.leadingAnchor, constant: 15)
+        labels.append(label)
+        label.anchor(
+            .bottom(dropDownButton.topAnchor, constant: -5),
+            .leading(dropDownButton.leadingAnchor, constant: 15)
             )
-        }
-    }
-
-    private func showInputField(for index: Int) {
-        guard index < propertyButtons.count else { return }
-
-        let singlePropertyStackView = allPropertiesStackView.arrangedSubviews[index] as? UIStackView
-
-        let inputField = UITextField()
-        inputField.placeholder = "Enter custom value"
-        inputField.borderStyle = .roundedRect
-        inputField.tag = index // Assign a unique tag to identify the text field later
-
-        if let existingInputField = singlePropertyStackView?.arrangedSubviews.compactMap({ $0 as? UITextField }).first {
-            // If there's already an input field, replace it
-            existingInputField.removeFromSuperview()
-        }
-
-        singlePropertyStackView?.addArrangedSubview(inputField)
-
-        // Set constraints for the inputField relative to the previous button
-        if index > 0 {
-            inputField.anchor(
-                .leading(propertyButtons[index - 1].trailingAnchor, constant: 15)
-            )
-        } else {
-            // If it's the first input field, set constraints relative to mainCategoryButton
-            inputField.anchor(
-                .leading(mainCategoryButton.trailingAnchor, constant: 15)
-            )
-        }
-    }
-
-
-    private func rebuildPropertyStackView() {
-        resetStackView(stackView: allPropertiesStackView)
-
-        // Add other views or input fields based on the user's selections
-        // For example, add property buttons and input field if a property is selected
-        for button in propertyButtons {
-            allPropertiesStackView.addArrangedSubview(button)
-        }
-    }
-
-    private func resetStackView(stackView: UIStackView) {
-        // Remove all arrangedSubviews from the stackView
-        for subview in stackView.arrangedSubviews {
-            subview.removeFromSuperview()
-
-            // Also remove the corresponding label from the array
-            if let label = subview as? PaddingLabel, let index = labels.firstIndex(of: label) {
-                labels.remove(at: index)
-            }
-        }
     }
 
     private func createSinglePropertyStackView() -> UIStackView {
         let singlePropertyStackView = UIStackView()
         singlePropertyStackView.axis = .vertical
         singlePropertyStackView.spacing = 15
+        singlePropertyStackView.distribution = .fillEqually
         return singlePropertyStackView
     }
 }

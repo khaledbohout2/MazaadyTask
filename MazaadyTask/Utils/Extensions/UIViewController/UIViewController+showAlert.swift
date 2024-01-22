@@ -40,7 +40,7 @@ extension UIViewController {
     func showAlert(title: String? = "",
                    message: String?,
                    selfDismissing: Bool = true,
-                   time: TimeInterval = 3.0) {
+                   time: TimeInterval = 0.5) {
 
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
 
