@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "AvatarHeader.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
