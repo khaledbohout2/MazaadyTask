@@ -146,8 +146,8 @@ class FormView: BaseView {
 
     func setupMainCategoriesDropdown(categories: [Category]) {
         mainCategoryDropdown.anchorView = mainCategoryButton
-        mainCategoryDropdown.dataSource = categories.map { $0.name }
         addLabel(for: mainCategoryButton, with: "Category", in: categoryStackView)
+        mainCategoryDropdown.dataSource = categories.map { $0.name }
         mainCategoryDropdown.selectionAction = { [weak self] (index: Int, item: String) in
             guard let self = self else { return }
             self.mainCategoryButton.setTitle(item, for: .normal)
