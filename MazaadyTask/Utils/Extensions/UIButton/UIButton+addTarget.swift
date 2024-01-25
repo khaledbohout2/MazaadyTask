@@ -36,7 +36,10 @@ extension UIButton {
 
     func addTarget(action: (() -> Void)?) {
         tapAction = action
-        addTarget(self, action: #selector(handleTapTarget), for: .touchUpInside)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {return}
+            addTarget(self, action: #selector(handleTapTarget), for: .touchUpInside)
+        }
     }
 
     // Every time the user taps on the UIImageView, this function gets called,

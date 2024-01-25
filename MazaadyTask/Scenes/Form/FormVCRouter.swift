@@ -8,6 +8,7 @@
 import UIKit
 
 class FormVCRouter {
+
     class func create() -> UIViewController {
         let view = FormVC()
         let router = FormVCRouter()
@@ -16,4 +17,12 @@ class FormVCRouter {
         view.presenter = presenter
         return view
     }
+
+    func navToDetailsScreen(from view: FormVCProtocol?, userSelection: [String: Any]) {
+        guard let vCont = view as? UIViewController,
+        let navC = vCont.navigationController else {return}
+        let destination = UserSelectionDetailsVCRouter.create(userSelection: userSelection)
+        navC.pushViewController(destination, animated: true)
+    }
+
 }

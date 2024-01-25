@@ -4,8 +4,8 @@ import DropDown
 protocol FormViewActionsProtocol: AnyObject {
     func didSelectMainCategory(mainCatId: Int)
     func didSelectSubCategory(mainCatId: Int, subCatId: Int)
-    func didSelectProperty(mainCatId: Int, subCatId: Int, propertyId: Int?, other: Bool?)
-    func didSelectOptionChild(mainCatId: Int, subCatId: Int, propertyId: Int, childPropertyId: Int)
+    func didSelectOption(mainCatId: Int, subCatId: Int, propertyId: Int, optionId: Int?, other: Bool?, otherValue: String?)
+    func didSelectOptionChild(mainCatId: Int, subCatId: Int, propertyId: Int, optionId: Int, childPropertyId: Int)
 }
 
 @objc protocol DropDownBtnsAction: AnyObject {
@@ -83,7 +83,7 @@ class FormView: BaseView {
     private var optionDropdowns: [Int: [DropDown]] = [:]
     var optionyButtons: [Int: [UIButton]] = [:]
 
-    private lazy var submitButton: UIButton = {
+    lazy var submitButton: UIButton = {
         let button = UIButton()
         button.setTitle("Submit", for: .normal)
         button.backgroundColor = .systemBlue
@@ -170,16 +170,16 @@ class FormView: BaseView {
         }
         guard let selectedSubCategory = subCategories.first(where: { $0.selected == true }) else {return}
         subCategoryButton.setTitle(selectedSubCategory.name, for: .normal)
+        allPropertiesStackView.removeAllArrangedSubviews()
         setupPropertyButtons(categories: categories)
     }
 
     func setupPropertyButtons(categories: [Category]) {
         propertyButtons = []
-        allPropertiesStackView.removeAllArrangedSubviews()
         guard let selectedCategory = categories.first(where: {$0.selected ?? false}),
               let subCategories = selectedCategory.children,
-            let selectedSubCategory = subCategories.first(where: { $0.selected == true }),
-        let properties = selectedSubCategory.children else {return}
+              let selectedSubCategory = subCategories.first(where: { $0.selected == true }),
+              let properties = selectedSubCategory.options else {return}
         for property in properties {
             let singlePropertyStackView = createSinglePropertyStackView()
             let button = UIButton()
@@ -189,91 +189,101 @@ class FormView: BaseView {
             button.makeRoundedCorner(cornerRadius: 8, borderColor: .lightGray, borderWidth: 1)
             button.setTitleColor(.black, for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
+            if let selectedOption = property.options?.first(where: {$0.selected ?? false}) {
+                button.setTitle(selectedOption.name, for: .normal)
+            }
             propertyButtons.append(button)
             singlePropertyStackView.addArrangedSubview(button)
             addLabel(for: button, with: property.name, in: singlePropertyStackView)
-            if property.other ?? false, property.selected ?? false {
+            if property.other ?? false {
                 let textField = UITextField()
                 textField.placeholder = "Other"
                 textField.borderStyle = .roundedRect
+                button.setTitle("Other", for: .normal)
                 singlePropertyStackView.addArrangedSubview(textField)
+                textField.anchor(.height(35),
+                                 .leading(singlePropertyStackView.leadingAnchor),
+                                 .trailing(singlePropertyStackView.trailingAnchor))
+                textField.text = property.otherValue ?? ""
             }
-            guard let options = property.options, property.selected ?? false else {
+            guard let selectedOptions = property.options?.filter({$0.selected ?? false && $0.options?.isEmpty == false}),
+                  !selectedOptions.isEmpty else {
                 allPropertiesStackView.addArrangedSubview(singlePropertyStackView)
-                return
+                continue
             }
-            optionyButtons[property.id]?.removeAll()
-            for index in 0...options.count - 1 {
-                let option = options[index]
-                let button = UIButton()
-                button.setTitle(option.name, for: .normal)
-                button.addTarget(self, action: #selector(propertyButtonTapped(_:)), for: .touchUpInside)
-                button.backgroundColor = .white
-                button.makeRoundedCorner(cornerRadius: 8, borderColor: .lightGray, borderWidth: 1)
-                button.setTitleColor(.black, for: .normal)
-                button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
-                button.tag = property.id
-                if option.selected ?? false {
-                    button.setTitle(option.name, for: .normal)
-                }
-                if var optionyButtonsArr = optionyButtons[property.id] {
-                    optionyButtonsArr.append(button)
-                } else {
-                    optionyButtons[property.id] = [UIButton]()
-                    optionyButtons[property.id]?.append(button)
-                }
-                singlePropertyStackView.addArrangedSubview(button)
-                addLabel(for: button, with: option.name, in: singlePropertyStackView)
-            }
-            setUpOptionsDropdowns(mainCatId: selectedCategory.id, subCatId: selectedSubCategory.id, property: property)
+            setUpChildOptionsDropdownButtons(singlePropertyStackView: singlePropertyStackView, categoryId: selectedCategory.id, subCategoryId: selectedSubCategory.id, propertId: property.id, options: selectedOptions)
             allPropertiesStackView.addArrangedSubview(singlePropertyStackView)
         }
-        setupPropertyDropdowns(categories: categories)
+        setupPropertiesDropdowns(categoryId: selectedCategory.id, subCategoryId: selectedSubCategory.id, properties: properties)
     }
 
-    func setupPropertyDropdowns(categories: [Category]) {
+    func setupPropertiesDropdowns(categoryId: Int, subCategoryId: Int, properties: [Propery]) {
         propertyDropdowns = []
-        guard let selectedCategory = categories.first(where: { $0.selected == true }),
-        let subCategories = selectedCategory.children,
-            let selectedSubCategory = subCategories.first(where: { $0.selected == true }),
-        let properties = selectedSubCategory.options else {return}
         for propertyIndex in 0...properties.count - 1 {
             let dropdown = DropDown()
             dropdown.anchorView = propertyButtons[propertyIndex]
-            var propertiesString = properties[propertyIndex].options?.map { $0.name } ?? []
-            propertiesString.append("Other")
-            dropdown.dataSource = propertiesString
+            var optionsString = properties[propertyIndex].options?.map { $0.name } ?? []
+            optionsString.append("Other")
+            dropdown.dataSource = optionsString
             dropdown.selectionAction = { [weak self] (index: Int, item: String) in
                 guard let self = self else { return }
-                self.propertyButtons[propertyIndex].setTitle(item, for: .normal)
-                if index == properties.count {
-                    self.delegate?.didSelectProperty(mainCatId: selectedCategory.id, subCatId: selectedSubCategory.id, propertyId: nil, other: true)
+                if item == "Other" {
+                    let textField = allPropertiesStackView.arrangedSubviews[propertyIndex] as? UITextField
+                    self.delegate?.didSelectOption(mainCatId: categoryId,
+                                                   subCatId: subCategoryId,
+                                                   propertyId: properties[propertyIndex].id,
+                                                   optionId: nil,
+                                                   other: true,
+                                                   otherValue: textField?.text ?? "")
                 } else {
-                    self.delegate?.didSelectProperty(mainCatId: selectedCategory.id, subCatId: selectedSubCategory.id, propertyId: properties[propertyIndex].id, other: false)
+                    self.delegate?.didSelectOption(mainCatId: categoryId,
+                                                   subCatId: subCategoryId,
+                                                   propertyId: properties[propertyIndex].id,
+                                                   optionId: properties[propertyIndex].options?[index].id ?? 0,
+                                                   other: false,
+                                                   otherValue: nil)
                 }
             }
             propertyDropdowns.append(dropdown)
         }
     }
 
-    func setUpOptionsDropdowns(mainCatId: Int, subCatId: Int, property: Category) {
-        guard let options = property.options else {return}
-        optionDropdowns[property.id]?.removeAll()
+    func setUpChildOptionsDropdownButtons(singlePropertyStackView: UIStackView, categoryId: Int, subCategoryId: Int, propertId: Int, options: [Option]) {
+        optionyButtons[propertId] = [UIButton]()
+        for optionIndex in 0...options.count - 1 {
+            let option = options[optionIndex]
+            let button = UIButton()
+            button.setTitle(option.name, for: .normal)
+            button.addTarget(self, action: #selector(childPropertyButtonTapped(_:)), for: .touchUpInside)
+            button.backgroundColor = .white
+            button.makeRoundedCorner(cornerRadius: 8, borderColor: .lightGray, borderWidth: 1)
+            button.setTitleColor(.black, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
+            button.tag = propertId
+            if option.selected ?? false {
+                button.setTitle(option.name, for: .normal)
+            }
+            optionyButtons[propertId]?.append(button)
+            singlePropertyStackView.addArrangedSubview(button)
+            addLabel(for: button, with: option.name, in: singlePropertyStackView)
+        }
+        setUpChildOptionsDropdowns(mainCatId: categoryId, subCatId: subCategoryId, propertyId: propertId, options: options)
+    }
+
+    func setUpChildOptionsDropdowns(mainCatId: Int,
+                                    subCatId: Int,
+                                    propertyId: Int,
+                                    options: [Option]) {
+        optionDropdowns[propertyId] = [DropDown]()
         for optionIndex in 0...options.count - 1 {
             let dropdown = DropDown()
-            dropdown.anchorView = optionyButtons[property.id]?[optionIndex]
-            dropdown.dataSource = options[property.id].options?.map { $0.name } ?? []
+            dropdown.anchorView = optionyButtons[propertyId]?[optionIndex]
+            dropdown.dataSource = options[optionIndex].options?.map { $0.name } ?? []
             dropdown.selectionAction = { [weak self] (index: Int, item: String) in
                 guard let self = self else { return }
-                self.optionyButtons[property.id]?[optionIndex].setTitle(item, for: .normal)
-                self.delegate?.didSelectOptionChild(mainCatId: mainCatId, subCatId: subCatId, propertyId: property.id, childPropertyId: options[optionIndex].id)
+                self.delegate?.didSelectOptionChild(mainCatId: mainCatId, subCatId: subCatId, propertyId: propertyId, optionId: options[optionIndex].id, childPropertyId: options[optionIndex].options?[index].id ?? 0)
             }
-            if var optionyDropdownsArr = optionDropdowns[property.id] {
-                optionyDropdownsArr.append(dropdown)
-            } else {
-                optionDropdowns[property.id] = [DropDown]()
-                optionDropdowns[property.id]?.append(dropdown)
-            }
+            optionDropdowns[propertyId]?.append(dropdown)
         }
     }
 
@@ -308,7 +318,7 @@ class FormView: BaseView {
         label.anchor(
             .bottom(dropDownButton.topAnchor, constant: -5),
             .leading(dropDownButton.leadingAnchor, constant: 15)
-            )
+        )
     }
 
     private func createSinglePropertyStackView() -> UIStackView {

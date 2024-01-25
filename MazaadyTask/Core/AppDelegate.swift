@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         setAppearance()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = FormVCRouter.create()
+        window?.rootViewController = FormVCRouter.create().toNavigation()
         window?.makeKeyAndVisible()
         return true
     }

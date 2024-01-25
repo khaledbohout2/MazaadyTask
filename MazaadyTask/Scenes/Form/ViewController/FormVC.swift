@@ -21,6 +21,10 @@ class FormVC: BaseVC<FormView>, FormVCProtocol {
         super.viewDidLoad()
         presenter.viewDidLoad()
         mainView.delegate = self
+        mainView.submitButton.addTarget { [weak self] in
+            guard let self = self else {return}
+            self.presenter.submitBtnTapped()
+        }
     }
 
     func updateUI(with categories: [Category]) {
@@ -41,12 +45,12 @@ extension FormVC: FormViewActionsProtocol {
         presenter.didSelectSubCategory(mainCatId: mainCatId, subCatId: subCatId)
     }
 
-    func didSelectProperty(mainCatId: Int, subCatId: Int, propertyId: Int?, other: Bool?) {
-        presenter.didSelectProperty(mainCatId: mainCatId, subCatId: subCatId, propertyId: propertyId, other: other)
+    func didSelectOption(mainCatId: Int, subCatId: Int, propertyId: Int, optionId: Int?, other: Bool?, otherValue: String?) {
+        presenter.didSelectOption(mainCatId: mainCatId, subCatId: subCatId, propertyId: propertyId, optionId: optionId, other: other, otherValue: otherValue)
     }
 
-    func didSelectOptionChild(mainCatId: Int, subCatId: Int, propertyId: Int, childPropertyId: Int) {
-        presenter.didSelectChildProperty(mainCatId: mainCatId, subCatId: subCatId, propertyId: propertyId, childPropertyId: childPropertyId)
+    func didSelectOptionChild(mainCatId: Int, subCatId: Int, propertyId: Int, optionId: Int, childPropertyId: Int) {
+        presenter.didSelectChildOption(mainCatId: mainCatId, subCatId: subCatId, propertyId: propertyId, optionId: optionId, childPropertyId: childPropertyId)
     }
 
 }

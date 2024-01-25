@@ -15,7 +15,10 @@ extension UIViewController: NVActivityIndicatorViewable {
         NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = .black.withAlphaComponent(0.4)
         NVActivityIndicatorView.DEFAULT_TEXT_COLOR = .black
         NVActivityIndicatorView.DEFAULT_BLOCKER_MESSAGE_FONT = .systemFont(ofSize: 16)
-        startAnimating(message: message, type: NVActivityIndicatorType.ballScaleMultiple)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            startAnimating(message: message, type: NVActivityIndicatorType.ballScaleMultiple)
+        }
     }
 
     func setLoadingMessage(message: String) {

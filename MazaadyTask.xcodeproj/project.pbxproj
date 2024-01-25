@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0FC32D2B605B230095282E /* UserSelectionDetailsVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FC32C2B605B230095282E /* UserSelectionDetailsVCRouter.swift */; };
+		1B0FC3302B605B3E0095282E /* UserSelectionDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FC32F2B605B3E0095282E /* UserSelectionDetailsVC.swift */; };
+		1B0FC3322B605B4D0095282E /* UserSelectionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FC3312B605B4D0095282E /* UserSelectionDetailsView.swift */; };
+		1B0FC3352B605B6F0095282E /* UserSelectionDetailsVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FC3342B605B6F0095282E /* UserSelectionDetailsVCPresenter.swift */; };
+		1B0FC3372B60983A0095282E /* FormVCPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FC3362B60983A0095282E /* FormVCPresenterTests.swift */; };
+		1B0FC3392B6098C10095282E /* MockFormVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FC3382B6098C10095282E /* MockFormVCRouter.swift */; };
+		1B0FC33B2B6099350095282E /* MockFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0FC33A2B6099350095282E /* MockFormView.swift */; };
 		1B33ECCE2B5B2E7E00C80104 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECCD2B5B2E7E00C80104 /* PaddingLabel.swift */; };
 		1B33ECD02B5B5F6600C80104 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECCF2B5B5F6600C80104 /* ApiClient.swift */; };
 		1B33ECD22B5B5F9100C80104 /* EndpointProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B33ECD12B5B5F9100C80104 /* EndpointProvider.swift */; };
@@ -17,7 +24,6 @@
 		1B3FC3052B5885C800414569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3042B5885C800414569 /* AppDelegate.swift */; };
 		1B3FC30E2B5885C900414569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC30D2B5885C900414569 /* Assets.xcassets */; };
 		1B3FC3112B5885C900414569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B3FC30F2B5885C900414569 /* LaunchScreen.storyboard */; };
-		1B3FC31C2B5885C900414569 /* MazaadyTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC31B2B5885C900414569 /* MazaadyTaskTests.swift */; };
 		1B3FC3262B5885C900414569 /* MazaadyTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3252B5885C900414569 /* MazaadyTaskUITests.swift */; };
 		1B3FC3282B5885C900414569 /* MazaadyTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3272B5885C900414569 /* MazaadyTaskUITestsLaunchTests.swift */; };
 		1B3FC33D2B58872100414569 /* AppDelegate+appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC33C2B58872100414569 /* AppDelegate+appearance.swift */; };
@@ -58,11 +64,14 @@
 		1B3FC3902B58955F00414569 /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC38F2B58955F00414569 /* UIColor+CustomColors.swift */; };
 		1B3FC3962B58974B00414569 /* UIButton+addTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3FC3952B58974B00414569 /* UIButton+addTarget.swift */; };
 		1B8C9EF72B5C48C3005CD461 /* UIStackView+removeAllArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C9EF62B5C48C3005CD461 /* UIStackView+removeAllArrangedSubviews.swift */; };
+		1BAA00502B623D1A003C05AD /* MockCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAA004F2B623D1A003C05AD /* MockCategoryRepository.swift */; };
 		1BCB894D2B5935AF00368FB9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB894C2B5935AF00368FB9 /* Category.swift */; };
 		1BCB894F2B59366500368FB9 /* FormVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB894E2B59366500368FB9 /* FormVCRouter.swift */; };
 		1BCB89512B59367300368FB9 /* FormVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB89502B59367300368FB9 /* FormVCPresenter.swift */; };
 		1BCB89542B59369200368FB9 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB89532B59369200368FB9 /* FormView.swift */; };
 		1BCB89562B59369F00368FB9 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB89552B59369F00368FB9 /* FormVC.swift */; };
+		1BE681B82B5F55790034ABE3 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE681B72B5F55790034ABE3 /* Property.swift */; };
+		1BE681BA2B5F55840034ABE3 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE681B92B5F55840034ABE3 /* Option.swift */; };
 		A1E1D5475F0CCBBFD68A294E /* Pods_MazaadyTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADD90EC0C19351E04FFAAE6 /* Pods_MazaadyTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +93,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0FC32C2B605B230095282E /* UserSelectionDetailsVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectionDetailsVCRouter.swift; sourceTree = "<group>"; };
+		1B0FC32F2B605B3E0095282E /* UserSelectionDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectionDetailsVC.swift; sourceTree = "<group>"; };
+		1B0FC3312B605B4D0095282E /* UserSelectionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectionDetailsView.swift; sourceTree = "<group>"; };
+		1B0FC3342B605B6F0095282E /* UserSelectionDetailsVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectionDetailsVCPresenter.swift; sourceTree = "<group>"; };
+		1B0FC3362B60983A0095282E /* FormVCPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVCPresenterTests.swift; sourceTree = "<group>"; };
+		1B0FC3382B6098C10095282E /* MockFormVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFormVCRouter.swift; sourceTree = "<group>"; };
+		1B0FC33A2B6099350095282E /* MockFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFormView.swift; sourceTree = "<group>"; };
 		1B33ECCD2B5B2E7E00C80104 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		1B33ECCF2B5B5F6600C80104 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		1B33ECD12B5B5F9100C80104 /* EndpointProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProvider.swift; sourceTree = "<group>"; };
@@ -97,7 +113,6 @@
 		1B3FC3102B5885C900414569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B3FC3122B5885C900414569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B3FC3172B5885C900414569 /* MazaadyTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MazaadyTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B3FC31B2B5885C900414569 /* MazaadyTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazaadyTaskTests.swift; sourceTree = "<group>"; };
 		1B3FC3212B5885C900414569 /* MazaadyTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MazaadyTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3FC3252B5885C900414569 /* MazaadyTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazaadyTaskUITests.swift; sourceTree = "<group>"; };
 		1B3FC3272B5885C900414569 /* MazaadyTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazaadyTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -139,11 +154,14 @@
 		1B3FC38F2B58955F00414569 /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
 		1B3FC3952B58974B00414569 /* UIButton+addTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+addTarget.swift"; sourceTree = "<group>"; };
 		1B8C9EF62B5C48C3005CD461 /* UIStackView+removeAllArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+removeAllArrangedSubviews.swift"; sourceTree = "<group>"; };
+		1BAA004F2B623D1A003C05AD /* MockCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoryRepository.swift; sourceTree = "<group>"; };
 		1BCB894C2B5935AF00368FB9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		1BCB894E2B59366500368FB9 /* FormVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVCRouter.swift; sourceTree = "<group>"; };
 		1BCB89502B59367300368FB9 /* FormVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVCPresenter.swift; sourceTree = "<group>"; };
 		1BCB89532B59369200368FB9 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		1BCB89552B59369F00368FB9 /* FormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
+		1BE681B72B5F55790034ABE3 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		1BE681B92B5F55840034ABE3 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		3ADD90EC0C19351E04FFAAE6 /* Pods_MazaadyTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MazaadyTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F3D32C3CEEE5D36DD84344 /* Pods-MazaadyTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MazaadyTask.debug.xcconfig"; path = "Target Support Files/Pods-MazaadyTask/Pods-MazaadyTask.debug.xcconfig"; sourceTree = "<group>"; };
 		C76B6CBF247B18CB7611C97C /* Pods-MazaadyTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MazaadyTask.release.xcconfig"; path = "Target Support Files/Pods-MazaadyTask/Pods-MazaadyTask.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +193,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B0FC32B2B605AE80095282E /* UserSelectionDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1B0FC32C2B605B230095282E /* UserSelectionDetailsVCRouter.swift */,
+				1B0FC32E2B605B270095282E /* ViewController */,
+				1B0FC3342B605B6F0095282E /* UserSelectionDetailsVCPresenter.swift */,
+			);
+			path = UserSelectionDetails;
+			sourceTree = "<group>";
+		};
+		1B0FC32E2B605B270095282E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1B0FC32F2B605B3E0095282E /* UserSelectionDetailsVC.swift */,
+				1B0FC3312B605B4D0095282E /* UserSelectionDetailsView.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		1B33ECD72B5B61CE00C80104 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +266,7 @@
 				1B3FC33A2B58868800414569 /* Configuration */,
 				1B3FC3392B58867B00414569 /* Core */,
 				1B3FC3382B58867200414569 /* Resources */,
+				1B3FC3372B58866700414569 /* Model */,
 				1B3FC3362B58865E00414569 /* Scenes */,
 				1B3FC3352B58862A00414569 /* Network */,
 				1B3FC3342B58862100414569 /* Utils */,
@@ -239,7 +277,10 @@
 		1B3FC31A2B5885C900414569 /* MazaadyTaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				1B3FC31B2B5885C900414569 /* MazaadyTaskTests.swift */,
+				1B0FC3362B60983A0095282E /* FormVCPresenterTests.swift */,
+				1B0FC3382B6098C10095282E /* MockFormVCRouter.swift */,
+				1B0FC33A2B6099350095282E /* MockFormView.swift */,
+				1BAA004F2B623D1A003C05AD /* MockCategoryRepository.swift */,
 			);
 			path = MazaadyTaskTests;
 			sourceTree = "<group>";
@@ -276,8 +317,9 @@
 		1B3FC3362B58865E00414569 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				1BCB89482B59308B00368FB9 /* Form */,
 				1B3FC3402B5888FC00414569 /* Base */,
+				1B0FC32B2B605AE80095282E /* UserSelectionDetails */,
+				1BCB89482B59308B00368FB9 /* Form */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -288,6 +330,8 @@
 				1B3FC33E2B5888DE00414569 /* BaseCodable.swift */,
 				1B33ECD52B5B602E00C80104 /* KnownErrors.swift */,
 				1BCB894C2B5935AF00368FB9 /* Category.swift */,
+				1BE681B72B5F55790034ABE3 /* Property.swift */,
+				1BE681B92B5F55840034ABE3 /* Option.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,7 +341,6 @@
 			children = (
 				1B3FC30D2B5885C900414569 /* Assets.xcassets */,
 				1B3FC30F2B5885C900414569 /* LaunchScreen.storyboard */,
-				1B3FC3372B58866700414569 /* Model */,
 				1B3FC33B2B5886BE00414569 /* Fonts */,
 			);
 			path = Resources;
@@ -679,6 +722,7 @@
 			files = (
 				1BCB89542B59369200368FB9 /* FormView.swift in Sources */,
 				1B3FC3802B58942500414569 /* UIView+anchor.swift in Sources */,
+				1B0FC3352B605B6F0095282E /* UserSelectionDetailsVCPresenter.swift in Sources */,
 				1B33ECDA2B5B61EC00C80104 /* CategoryEndPoints.swift in Sources */,
 				1BCB894F2B59366500368FB9 /* FormVCRouter.swift in Sources */,
 				1B3FC38B2B58951900414569 /* UIViewController+toNavigation.swift in Sources */,
@@ -691,7 +735,9 @@
 				1B3FC3872B5894D400414569 /* UIViewController+loading.swift in Sources */,
 				1B33ECCE2B5B2E7E00C80104 /* PaddingLabel.swift in Sources */,
 				1B3FC34A2B58891E00414569 /* BaseVC.swift in Sources */,
+				1B0FC3322B605B4D0095282E /* UserSelectionDetailsView.swift in Sources */,
 				1B3FC3892B5894FE00414569 /* UIViewController+showAlert.swift in Sources */,
+				1B0FC3302B605B3E0095282E /* UserSelectionDetailsVC.swift in Sources */,
 				1B33ECD22B5B5F9100C80104 /* EndpointProvider.swift in Sources */,
 				1B3FC3052B5885C800414569 /* AppDelegate.swift in Sources */,
 				1B3FC3532B588AB700414569 /* UITextField+setPaddingPoints.swift in Sources */,
@@ -701,6 +747,9 @@
 				1B3FC34B2B58891E00414569 /* BasePresenterProtocol.swift in Sources */,
 				1B3FC33F2B5888DE00414569 /* BaseCodable.swift in Sources */,
 				1B33ECD42B5B5FB000C80104 /* ApiError.swift in Sources */,
+				1BE681BA2B5F55840034ABE3 /* Option.swift in Sources */,
+				1B0FC32D2B605B230095282E /* UserSelectionDetailsVCRouter.swift in Sources */,
+				1BE681B82B5F55790034ABE3 /* Property.swift in Sources */,
 				1B8C9EF72B5C48C3005CD461 /* UIStackView+removeAllArrangedSubviews.swift in Sources */,
 				1B33ECD62B5B602E00C80104 /* KnownErrors.swift in Sources */,
 				1BCB89562B59369F00368FB9 /* FormVC.swift in Sources */,
@@ -716,7 +765,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B3FC31C2B5885C900414569 /* MazaadyTaskTests.swift in Sources */,
+				1B0FC3372B60983A0095282E /* FormVCPresenterTests.swift in Sources */,
+				1B0FC3392B6098C10095282E /* MockFormVCRouter.swift in Sources */,
+				1B0FC33B2B6099350095282E /* MockFormView.swift in Sources */,
+				1BAA00502B623D1A003C05AD /* MockCategoryRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
