@@ -73,11 +73,7 @@ class FormVCPresenter: FormVCPresenterProtocol {
                 mutableSubCategory.selected = false
                 mutableSubCategory.options = subCategory.options?.map { property in
                     var mutableProperty = property
-                    mutableProperty.options = property.options?.map { option in
-                        var mutableOption = option
-                        mutableOption.selected = false
-                        return mutableOption
-                    }
+                    mutableProperty.options = []
                     return mutableProperty
                 }
                 return mutableSubCategory
@@ -95,11 +91,6 @@ class FormVCPresenter: FormVCPresenterProtocol {
                 mutableSubCategory.selected = subCategory.id == subCatId
                 mutableSubCategory.options = subCategory.options?.map { property in
                     var mutableProperty = property
-                    mutableProperty.options = property.options?.map { option in
-                        var mutableOption = option
-                        mutableOption.selected = false
-                        return mutableOption
-                    }
                     mutableProperty.options = []
                     return mutableProperty
                 }
@@ -154,11 +145,8 @@ class FormVCPresenter: FormVCPresenterProtocol {
                     }
                     mutableProperty.options = property.options?.map { option in
                         var mutableOption = option
-                        mutableOption.selected = option.selected
                         mutableOption.options = option.options
-                        if mutableOption.id == optionId {
-                            mutableOption.selected = true
-                        }
+                        mutableOption.selected = mutableOption.id == optionId
                         return mutableOption
                     }
                     return mutableProperty
@@ -195,6 +183,7 @@ class FormVCPresenter: FormVCPresenterProtocol {
                             mutableProperty.options = property.options?.map { option in
                                 var mutableOption = option
                                 mutableOption.options = option.options
+                                mutableOption.selected = false
                                 if mutableOption.id == optionId {
                                     mutableOption.selected = true
                                     mutableOption.options = data.data
