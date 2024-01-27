@@ -228,7 +228,8 @@ class FormView: BaseView {
             dropdown.selectionAction = { [weak self] (index: Int, item: String) in
                 guard let self = self else { return }
                 if item == "Other" {
-                    let textField = allPropertiesStackView.arrangedSubviews[propertyIndex] as? UITextField
+                    let singleStackView = allPropertiesStackView.arrangedSubviews[propertyIndex] as? UIStackView
+                    let textField = singleStackView?.arrangedSubviews.last as? UITextField
                     self.delegate?.didSelectOption(mainCatId: categoryId,
                                                    subCatId: subCategoryId,
                                                    propertyId: properties[propertyIndex].id,
