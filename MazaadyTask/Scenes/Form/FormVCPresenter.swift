@@ -221,7 +221,7 @@ class FormVCPresenter: FormVCPresenterProtocol {
                         mutableOption.selected = (option.id == optionId)
                         mutableOption.options = option.options?.map { childOption in
                             var mutableChildOption = childOption
-                            mutableChildOption.selected = (childOption.id == childPropertyId)
+                            mutableChildOption.selected = childOption.id == childPropertyId
                             return mutableChildOption
                         }
                         return mutableOption
